@@ -1,7 +1,11 @@
 class RepliesController < ApplicationController
+  protect_from_forgery prepend: true, with: :exception
   before_action :authenticate_user!
   before_action :set_reply, only: [:edit, :update, :show, :destroy]
   before_action :set_discussion, only: [:create, :edit, :show, :update, :destroy]
+  skip_before_action :verify_authenticity_token
+
+  before_action :set_bug, only: [:show, :edit, :update]
 
   def create
     @reply = @discussion.replies.create(params[:reply].permit(:reply, :discussion_id))

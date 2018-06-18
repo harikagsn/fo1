@@ -1,56 +1,39 @@
-<%= form_with(model: discussion, local: true) do |form| %>
-  <% if discussion.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(discussion.errors.count, "error") %> prohibited this discussion from being saved:</h2>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<%= simple_form_for(@discussion) do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-      <% discussion.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="field">
+    <i class="material-icons">create</i>
+    <%= f.label :title %>
+  <%= f.text_field :title %>
+</div>
+
+  <div class="field">
+    <i class="material-icons">create</i>
+    <%= f.label :content %>
+  <%= f.text_field :content %>
+  </div>
+
+  <div class="field">
+    <label class="label">Channel</label>
+    <div class="control has-icons-left">
+      <span class="select">
+        <%= f.input_field :channel_id, prompt: "Select channel" %>
+      </span>
+      <span class="icon is-small is-left">
+        <i class="fa fa-tag"></i>
+      </span>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :headline %>
-    <%= form.text_field :headline %>
   </div>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+    <div class="control">
+      <%= f.button :submit, class:"button is-info" %>
+    </div>
   </div>
-       <div class="field">
-         <meta name = "viewport" content = "width = device-width, initial-scale = 1">
-         <link rel = "stylesheet"
-           href = "https://fonts.googleapis.com/icon?family=Material+Icons">
-         <link rel = "stylesheet"
-           href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-         <script type = "text/javascript"
-           src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
-         <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
-         </script>
-       <body class = "container">
-        <div class = "row">
-           <form class = "col s12">
-              <div class = "row">
-                 <label>File Input</label>
-                 <div class = "file-field input-field">
-                    <div class = "btn">
-                       <span>Browse</span>
-                       <input type = "file" />
-                    </div>
 
-                    <div class = "file-path-wrapper">
-                       <input class = "file-path validate" type = "text"
-                          placeholder = "Upload file" />
-                    </div>
-                 </div>
-              </div>
-   </div>
-  </div>
-  </body>
-  <div class="actions">
-    <%= form.submit "Save", class: "waves-effect waves-light btn" %>
-  </div>
 <% end %>
+</html>
