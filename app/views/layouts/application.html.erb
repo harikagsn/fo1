@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Forum</title>
+    <%= csrf_meta_tags %>
+    <%= csrf_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <% form_tag(discussions_path, :method => "get") do %>
+      <%= label_tag(:q, "Search for:") %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Search") %>
+    <% end %>
+
+    <div class="navbar-fixed">
+     <nav class="blue-grey">
+      <div class="nav-wrapper">
+        <div class="container">
+
+        <ul class="right hide-on-med-and-down">
+
+          <li><h7><%= link_to 'EDIT PROFILE', edit_user_registration_path, :class => 'navbar-link' %> </li>
+          <li><%= link_to "LOGOUT", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></h7></li>
+          <li><a href="http://www.flickr.com/help/forum">Help</a></li>
+          <li><a href="news.html">News</a></li>
+
+          <li><a href="badges.html">Messages</a></li>
+        </ul>
+        <p class="navbar-text pull-right">
+<% if user_signed_in? %>
+<%= image_tag("logo.jpg", {:style => "width:55px;"}) %>
+  Logged in as <strong> <%= current_user.email %> </strong>
+
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+
+</p>
+
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+
+    <div class="container">
+      <% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+    <%= yield %>
+    </div>
+  </body>
+</html>
