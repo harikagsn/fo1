@@ -9,3 +9,4 @@ The application on the outside looks a little bleak but I promise there is a lot
 Follow along with more videos on [YouTube](https://www.youtube.com/playlist?list=PL01nNIgQ4uxNkDZNMON-TrzDVNIk3cOz4) or my [original blog post](https://web-crunch.com/lets-build-with-ruby-on-rails-discussion-forum) and be sure to download the source code on this repo to both explore the application and refer to it as you build alongside me.
 
 If you enjoy these Let's Builds I can't thank you enough for tuning in. I hate asking for anything in return so only if you insist you can [buy my a coffee](https://buymeacoff.ee/webcrunch) to keep these going. Also, be sure to subscribe to my [YouTube channel](https://youtube.com/c/webcrunch) and [newsletter](https://web-crunch.com/subscribe) for automatic updates. 
+# sample_forum
