@@ -7,4 +7,8 @@ class User < ApplicationRecord
 
   has_many :discussions, dependent: :destroy
   has_many :channels, through: :discussions
+  def admin?
+  has_role?(:admin)
+end
+
 end

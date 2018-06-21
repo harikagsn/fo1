@@ -5,7 +5,7 @@
   <div class="level-right">
   <% if has_role?(:admin) %>
     <%= link_to 'Edit Channel', edit_channel_path(@channel), class:"button" %>
-  <% end %>
+    <% end %>
   </div>
 </div>
 <hr />
@@ -14,4 +14,3 @@
  <%= render 'shared/discussions' %>
  <%= render 'discussions/sidebar' %>
 </div>
-

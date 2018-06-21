@@ -1,23 +1,29 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="column is-8">
-  <h3>Latest Discussions</h3>
+  <h3><center>Latest Discussions</center></h3>
   <div class="discussions">
     <% @discussions.each do |discussion| %>
       <div class="columns bb-not-last pv10">
 
         <div class="column is-5">
           <%= link_to discussion do %>
-            <h3 class="title is-2"><%= discussion.title %></h3>
+          <h3><div class="field"><i class="material-icons">forum</i>
+          <i> <%= discussion.title %></i></div></h3>
           <% end %>
-          <div class="content">
-            <%= truncate(strip_markdown(discussion.content), length: 140) %>
-            <p><em><small>Posted <%= time_ago_in_words(discussion.created_at) %> ago in
-              <% if discussion.channel %>
-                <%= link_to discussion.channel.channel, discussion.channel %>
+          <% if discussion.channel %>
+            <h5>  <%= link_to discussion.channel.channel, discussion.channel %> channel</h5>
+            <h6><i>Total discussions:
+              <%= Discussion.distinct.count('content') %></h6>
               <% end %>
-              by <%= discussion.user.email %>
-              </small>
-              </em>
-            </p>
+
+              <h7><p>Posted <%= time_ago_in_words(discussion.created_at) %> ago by <%= discussion.user.email %></i>
+            </h7>
+
+        </p>
+          <div class="content">
+
+            <%= truncate(strip_markdown(discussion.content), length: 300) %>
+
           </div>
         </div>
 

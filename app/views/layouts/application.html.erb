@@ -4,10 +4,10 @@
     <title>Forum</title>
 
     <%= csrf_meta_tags %>
-
+      <%= javascript_include_tag "application" %>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    
    </head>
   <body>
 
@@ -37,7 +37,7 @@
           <li><a href="http://www.flickr.com/help/forum">Help</a></li>
           <li><a href="news.html">Updates</a></li>
 
-        
+
         </ul>
         <p class="navbar-text pull-right">
 

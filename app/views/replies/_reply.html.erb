@@ -1,10 +1,15 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="box">
   <article class="media">
 
     <div class="media-content">
       <div class="content">
-        <p><strong><i><%= reply.user.email %></strong> <small><%= time_ago_in_words(reply.created_at) %></small></i>
-          <br/>
+
+        <div class="field">
+          <h7><i class="small material-icons">person</i>
+        <p><strong><i><%= reply.user.email %></strong> <small><%= time_ago_in_words(reply.created_at) %></small></i></h7>
+        </div>
+
           <%= markdown(reply.reply) %>
         </p>
       </div> </div>
@@ -12,10 +17,10 @@
 
         <div class="level-left">
           <a class="level-item">
-            <%= link_to edit_discussion_reply_path(reply.discussion, reply) do %>
-            <span class="icon is-small"></span>
-            <% end %>
-          </a>
+
+            <%= link_to 'Delete', discussion_reply_path(reply.discussion, reply), class:'button is-danger', method: :delete, data: { confirm: "Are you sure you want to delete this reply? " } %>
+
+            </a>
           <a class="level-item">
             <%= link_to [reply.discussion, reply],
                 method: :delete, data: {confirm: "Are you sure ?" } do %>

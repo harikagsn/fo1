@@ -8,6 +8,8 @@ class Ability
       else
         can :read, :all
       end
-
+      def admin?
+      has_role?(:admin)
+      end
   end
 end

@@ -4,7 +4,6 @@ class RepliesController < ApplicationController
   before_action :set_reply, only: [:edit, :update, :show, :destroy]
   before_action :set_discussion, only: [:create, :edit, :show, :update, :destroy]
   skip_before_action :verify_authenticity_token
-
   before_action :set_bug, only: [:show, :edit, :update]
 
   def create
@@ -14,17 +13,13 @@ class RepliesController < ApplicationController
     respond_to do |format|
       if @reply.save
         format.html { redirect_to discussion_path(@discussion) }
-        format.js # renders create.js.erb
+        format.js
       else
         format.html { redirect_to discussion_path(@discussion), notice: "Reply did not save. Please try again."}
         format.js
       end
     end
   end
-
-  def new
-  end
-
 
   def destroy
     @reply = @discussion.replies.find(params[:id])
@@ -37,17 +32,6 @@ class RepliesController < ApplicationController
     @reply = @discussion.replies.find(params[:id])
   end
 
-  def update
-    @reply = @discussion.replies.find(params[:id])
-     respond_to do |format|
-      if @reply.update(reply_params)
-        format.html { redirect_to discussion_path(@discussion), notice: 'Reply was successfully updated.' }
-      else
-        format.html { render :edit }
-        format.json { render json: @reply.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   def show
   end

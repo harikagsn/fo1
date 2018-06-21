@@ -15,20 +15,20 @@
     <i class="material-icons">create</i>
     <%= f.label :content %>
   <%= f.text_field :content %>
-  </div>
+</div>
 
   <div class="field">
-    <label class="label">Channel</label>
-    <div class="control has-icons-left">
-      <span class="select">
-        <%= f.input_field :channel_id, prompt: "Select channel" %>
-      </span>
-      <span class="icon is-small is-left">
-        <i class="fa fa-tag"></i>
-      </span>
+      <label class="label">Channel</label>
+      <div class="control has-icons-left">
+        <span class="select">
+          <%= f.input_field :channel_id, prompt: "Select channel" %>
+        </span>
+        <span class="icon is-small is-left">
+          <i class="fa fa-tag"></i>
+        </span>
+      </div>
     </div>
-  </div>
-
+  </br>
   <div class="field">
     <div class="control">
       <%= f.button :submit, class:"button is-info" %>

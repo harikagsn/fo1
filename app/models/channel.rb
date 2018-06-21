@@ -1,5 +1,6 @@
 class Channel < ApplicationRecord
   has_many :discussions
+  has_many :replies
   has_many :users, through: :discussions
   resourcify
 
